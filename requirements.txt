@@ -1,0 +1,7 @@
+flask
+fasttext
+os
+psutil
+requests
+tempfile
+gzip
