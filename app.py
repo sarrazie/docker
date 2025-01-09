@@ -19,19 +19,19 @@ def download_and_extract_model():
     if response.status_code != 200:
        raise Exception(f"Failed to download model: {response.status_code}")
 
-# Temporäre Datei für die komprimierte Datei erstellen
+    # Temporäre Datei für die komprimierte Datei erstellen
     temp_compressed_path = tempfile.NamedTemporaryFile(delete=False, suffix=".gz")
     with open(temp_compressed_path.name, "wb") as f:
         for chunk in response.iter_content(chunk_size=1024 * 1024):
             f.write(chunk)
 
-# Temporäre Datei für die entpackte Datei erstellen
+    # Temporäre Datei für die entpackte Datei erstellen
     temp_model_path = tempfile.NamedTemporaryFile(delete=False)
     with gzip.open(temp_compressed_path.name, "rb") as compressed_file:
          with open(temp_model_path.name, "wb") as uncompressed_file:
             uncompressed_file.write(compressed_file.read())
 
-# Entferne die komprimierte Datei, da sie nicht mehr benötigt wird
+    # Entferne die komprimierte Datei, da sie nicht mehr benötigt wird
     os.unlink(temp_compressed_path.name)
 
     return temp_model_path.name
