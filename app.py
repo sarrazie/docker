@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import fasttext
+#import fasttext
 import psutil
 import requests
 import tempfile
