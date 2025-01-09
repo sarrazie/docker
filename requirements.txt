@@ -1,6 +1,6 @@
 flask
 psutil
 requests
-tempfile
+#tempfile
 gzip
 #fasttext
