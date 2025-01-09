@@ -68,4 +68,4 @@ def health_check():
     return jsonify({"status": "API is running", "memory_usage_gb": memory_usage})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=8501)
